@@ -5,16 +5,17 @@ A simple slideout nav that is an angularized version of the one found here: http
 
 Instructions
 ============
+```html
+<slidenav>
+  <slidenav-nav>
+    <div>My Navbar Content</div>
+  </slidenav-nav>
 
-  <slidenav>
-      <slidenav-nav>
-        <!-- Your navbar items go here -->
-      </slidenav-nav>
-
-      <slidenav-content>
-        <!-- Your main body content goes here -->
-      </slidenav-content>
-  </slidenav>
+  <slidenav-content>
+    <div>My Meny Content</div>
+  </slidenav-content>
+</slidenav>
+```
 
 Animation Effects
 =================
