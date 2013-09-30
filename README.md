@@ -17,6 +17,11 @@ Instructions
 angular.module('myapp',['slidenav']);
 ```
 
+### CSS
+
+1. slidenav.css
+2. modernizr. A development version of modernizr can be found on Microsoft CDN: http://ajax.aspnetcdn.com/ajax/modernizr/modernizr-2.0.6-development-only.js
+
 ### HTML
 
 ```html
