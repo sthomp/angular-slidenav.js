@@ -8,19 +8,29 @@
     <link rel="stylesheet" href="stylesheets/slidenav.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
   </head>
-  <body>
+  <body ng-app="myapp">
 
     <slidenav>
       <slidenav-nav>
-        <div>My Navbar Content</div>
+        <div ng-controller="navctrl">
+          <h2>My Navbar Content</h2>
+          <button ng-click="close()">Close</button>
+        </div>
       </slidenav-nav>
 
       <slidenav-content>
-        <div>My Meny Content</div>
+        <div ng-controller="myctrl">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+          <button ng-click="openNav()">Open Nav</button>
+        </div>
       </slidenav-content>
     </slidenav>
     
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.2/angular.min.js"></script>
     <script src="javascripts/slidenav.js"></script>
+    <script src="javascripts/myapp.js"></script>
     
   </body>
 </html>
