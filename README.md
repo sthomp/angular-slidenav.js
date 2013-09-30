@@ -5,6 +5,15 @@ A simple slideout nav that is an angularized version of the one found here: http
 
 Instructions
 ============
+
+### Import the slidenav module
+
+```javascript
+angular.module('myapp',['slidenav']);
+```
+
+### HTML
+
 ```html
 <slidenav>
   <slidenav-nav>
@@ -15,6 +24,15 @@ Instructions
     <div>My Meny Content</div>
   </slidenav-content>
 </slidenav>
+```
+
+### Using the service to toggle the nav
+
+Inject slidenav into your controller. The slivenav service has 2 methods:
+
+```javascript
+slidenav.open();
+slidenav.close();
 ```
 
 Animation Effects
