@@ -1,3 +1,8 @@
 body{
 	margin: 0px;
 }
+
+.body-content{
+	background-color: beige;
+	padding: 0px 50px;
+}
