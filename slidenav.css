@@ -65,6 +65,7 @@ body,
 
 .st-menu {
 	overflow: auto;
+	-webkit-overflow-scrolling: touch;
 	position: absolute;
 	top: 0;
 	left: 0;
