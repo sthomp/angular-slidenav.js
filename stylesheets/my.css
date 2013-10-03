@@ -1,8 +1,7 @@
-body{
-	margin: 0px;
+.st-content{
+	background-color:beige;
 }
 
-.body-content{
-	background-color: beige;
-	padding: 0px 50px;
+.main-body{
+	padding: 0 50px;
 }

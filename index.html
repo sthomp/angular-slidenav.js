@@ -7,95 +7,97 @@
 
     <link rel="stylesheet" href="http://rawgithub.com/sthomp/angular-slidenav.js/master/slidenav.css">
     <link rel="stylesheet" href="stylesheets/my.css">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.2/angular.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
   </head>
   <body ng-app="myapp">
 
     <slidenav>
-      <slidenav-nav>
+      <slidenav-menu>
         <div ng-controller="navctrl">
-          <h2>My Navbar Content</h2>
           <button ng-click="close()">Close</button>
-          <ul>
-            <li>Menu Item</li>
-            <li>Menu Item</li>
-            <li>Menu Item</li>
-            <li>Menu Item</li>
-            <li>Menu Item</li>
-            <li>Menu Item</li>
-            <li>Menu Item</li>
-            <li>Menu Item</li>
-            <li>Menu Item</li>
-            <li>Menu Item</li>
-            <li>Menu Item</li>
-            <li>Menu Item</li>
-            <li>Menu Item</li>
-            <li>Menu Item</li>
-            <li>Menu Item</li>
-            <li>Menu Item</li>
-            <li>Menu Item</li>
-            <li>Menu Item</li>
-            <li>Menu Item</li>
-            <li>Menu Item</li>
-            <li>Menu Item</li>
-            <li>Menu Item</li>
-            <li>Menu Item</li>
-            <li>Menu Item</li>
-            <li>Menu Item</li>
-            <li>Menu Item</li>
-            <li>Menu Item</li>
-            <li>Menu Item</li>
-            <li>Menu Item</li>
-            <li>Menu Item</li>
-            <li>Menu Item</li>
-            <li>Menu Item</li>
-            <li>Menu Item</li>
-            <li>Menu Item</li>
-            <li>Menu Item</li>
-            <li>Menu Item</li>
-            <li>Menu Item</li>
-            <li>Menu Item</li>
-            <li>Menu Item</li>
-            <li>Menu Item</li>
-            <li>Menu Item</li>
-            <li>Menu Item</li>
-            <li>Menu Item</li>
-            <li>Menu Item</li>
-            <li>Menu Item</li>
-            <li>Menu Item</li>
-            <li>Menu Item</li>
-            <li>Menu Item</li>
-            <li>Menu Item</li>
-            <li>Menu Item</li>
-            <li>Menu Item</li>
-            <li>Menu Item</li>
-            <li>Menu Item</li>
-            <li>Menu Item</li>
-            <li>Menu Item</li>
-            <li>Menu Item</li>
-            <li>Menu Item</li>
-            <li>Menu Item</li>
-            <li>Menu Item</li>
-            <li>Menu Item</li>
-            <li>Menu Item</li>
-            <li>Menu Item</li>
-            <li>Menu Item</li>
-          </ul>
+          <nav>
+            <ul>
+              <li>Menu Item</li>
+              <li>Menu Item</li>
+              <li>Menu Item</li>
+              <li>Menu Item</li>
+              <li>Menu Item</li>
+              <li>Menu Item</li>
+              <li>Menu Item</li>
+              <li>Menu Item</li>
+              <li>Menu Item</li>
+              <li>Menu Item</li>
+              <li>Menu Item</li>
+              <li>Menu Item</li>
+              <li>Menu Item</li>
+              <li>Menu Item</li>
+              <li>Menu Item</li>
+              <li>Menu Item</li>
+              <li>Menu Item</li>
+              <li>Menu Item</li>
+              <li>Menu Item</li>
+              <li>Menu Item</li>
+              <li>Menu Item</li>
+              <li>Menu Item</li>
+              <li>Menu Item</li>
+              <li>Menu Item</li>
+              <li>Menu Item</li>
+              <li>Menu Item</li>
+              <li>Menu Item</li>
+              <li>Menu Item</li>
+              <li>Menu Item</li>
+              <li>Menu Item</li>
+              <li>Menu Item</li>
+              <li>Menu Item</li>
+              <li>Menu Item</li>
+              <li>Menu Item</li>
+              <li>Menu Item</li>
+              <li>Menu Item</li>
+              <li>Menu Item</li>
+              <li>Menu Item</li>
+              <li>Menu Item</li>
+              <li>Menu Item</li>
+              <li>Menu Item</li>
+              <li>Menu Item</li>
+              <li>Menu Item</li>
+              <li>Menu Item</li>
+              <li>Menu Item</li>
+              <li>Menu Item</li>
+              <li>Menu Item</li>
+              <li>Menu Item</li>
+              <li>Menu Item</li>
+              <li>Menu Item</li>
+              <li>Menu Item</li>
+              <li>Menu Item</li>
+              <li>Menu Item</li>
+              <li>Menu Item</li>
+              <li>Menu Item</li>
+              <li>Menu Item</li>
+              <li>Menu Item</li>
+              <li>Menu Item</li>
+              <li>Menu Item</li>
+              <li>Menu Item</li>
+              <li>Menu Item</li>
+              <li>Menu Item</li>
+              <li>Menu Item</li>
+            </ul>
+          </nav>
         </div>
-      </slidenav-nav>
+      </slidenav-menu>
 
       <slidenav-content>
-        <div ng-controller="myctrl" class="body-content">
+        <div class="main-body" ng-controller="myctrl">
           <h1>angular-slidenav.js</h1>
-          <a style="position: absolute; top: 0; right: 0; border: 0;" href="https://github.com/sthomp/angular-slidenav.js"><img src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>
+          <a style="position: absolute; top: 0; right: 0; border: 0;" href="https://github.com/sthomp/angular-slidenav.js" target="_"><img src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>
 
           <p>
             An angularized version of <a href="http://tympanus.net/Development/SidebarTransitions">http://tympanus.net/Development/SidebarTransitions</a>
           </p>
 
           <button ng-click="openNav()">Open Nav</button>
-          
-          <h2>Body Content</h2>
+
+          <h2>Sample Body Content</h2>
         
           <p>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
@@ -141,8 +143,6 @@
       </slidenav-content>
     </slidenav>
     
-    <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/modernizr/modernizr-2.0.6-development-only.js"></script>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.2/angular.min.js"></script>
     <script type="text/javascript" src="http://rawgithub.com/sthomp/angular-slidenav.js/master/slidenav.js"></script>
     <script type="text/javascript" src="javascripts/myapp.js"></script>
     
