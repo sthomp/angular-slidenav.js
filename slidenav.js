@@ -1,4 +1,12 @@
 angular.module("slidenav",[])
+	.constant('CSS_CLASSES',{
+		container: 'st-container',
+		effect: 'st-effect',
+		pusher: 'st-pusher',
+		content: 'st-content',
+		menu: 'st-menu',
+		menuOpen: 'st-menu-open'
+	})
 	.factory('slidenav', ['$rootScope', '$timeout', function($rootScope, $timeout){
 
 	    var state = {
@@ -6,7 +14,6 @@ angular.module("slidenav",[])
 	    }
 
 		return {
-			state: state,
 			open: function(){
 				$rootScope.$emit("slidenav:open", "test");
 				$timeout(function(){
@@ -24,21 +31,21 @@ angular.module("slidenav",[])
 			}
 		}
 	}])
-	.directive("slidenav", ['$compile' ,function($compile){
+	.directive("slidenav", ['CSS_CLASSES',function(CSS_CLASSES){
 	    return {
 	        restrict: "E",
 	        scope: {},
 	        transclude: true,
-	        template: '<div id="st-container" class="st-container st-effect-2" ng-transclude></div>',
+	        template: '<div class="'+ CSS_CLASSES.container + ' ' + CSS_CLASSES.effect + '" ng-transclude></div>',
 	        replace: true,
 	        controller: ['$rootScope', '$scope', '$timeout', 'slidenav', '$element',function($rootScope, $scope, $timeout, slidenav, $element){
 
 	        	$rootScope.$on("slidenav:open", function(_, msg){
-	                $element.addClass('st-menu-open');
+	                $element.addClass(CSS_CLASSES.menuOpen);
 	            });
 
 	            $rootScope.$on("slidenav:close", function(_, msg){
-	                $element.removeClass('st-menu-open');
+	                $element.removeClass(CSS_CLASSES.menuOpen);
 	            });
 	            
 
@@ -50,12 +57,12 @@ angular.module("slidenav",[])
 	        }
 	    }
 	}])
-	.directive("slidenavNav", [function(){
+	.directive("slidenavMenu", ['CSS_CLASSES', function(CSS_CLASSES){
 	    return {
 	        restrict: "E",
 	        transclude: true,
-	        scope: {},
-	        template: '<nav class="st-menu st-effect-2" ng-transclude></nav>',
+	        scope: {},	
+	        template: '<div class="' + CSS_CLASSES.menu + ' ' + CSS_CLASSES.effect + '" ng-transclude></div>',
 	        replace: true,
 	        controller: ['$scope',function($scope){
 	        }],
@@ -63,17 +70,17 @@ angular.module("slidenav",[])
 	        }
 	    }
 	}])
-	.directive("slidenavContent", ['$compile', 'slidenav', function($compile, slidenav){
+	.directive("slidenavContent", ['slidenav', 'CSS_CLASSES', function(slidenav, CSS_CLASSES){
 	    return {
 	        restrict: "E",
 	        transclude: true,
 	        scope: {},
-	        template: '<div class="st-pusher" ng-click="pusherClick($event)"><div class="st-content"><div class="st-content-inner" ng-transclude></div></div></div>',
+	        template: '<div class="' + CSS_CLASSES.pusher + '" ng-click="pusherClick($event)"><div class="' + CSS_CLASSES.content + '" ng-transclude></div></div>',
 	        replace: true,
 	        controller: ['$rootScope', '$scope', '$timeout',function($rootScope, $scope, $timeout){
 
 	        	$scope.pusherClick = function(event){
-	            	if(slidenav.state.isOpen){
+	            	if(slidenav.isOpen()){
 	            		slidenav.close();
 	            	}
 	            }
