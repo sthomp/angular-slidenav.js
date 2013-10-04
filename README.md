@@ -20,15 +20,14 @@ angular.module('myapp',['slidenav']);
 ### CSS
 
 1. slidenav.css
-2. modernizr. A development version of modernizr can be found on Microsoft CDN: http://ajax.aspnetcdn.com/ajax/modernizr/modernizr-2.0.6-development-only.js
 
 ### HTML
 
 ```html
 <slidenav>
-  <slidenav-nav>
+  <slidenav-menu>
     <div>My Navbar Content</div>
-  </slidenav-nav>
+  </slidenav-menu>
 
   <slidenav-content>
     <div>My Meny Content</div>
@@ -43,6 +42,7 @@ Inject slidenav into your controller. The slivenav service has 2 methods:
 ```javascript
 slidenav.open();
 slidenav.close();
+slidenav.isOpen();
 ```
 
 Animation Effects
