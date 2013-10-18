@@ -1,99 +1,72 @@
 body{
 	margin: 0px;	/* Normalize */
 }
-
-html,
-body,
-.st-container,
-.st-pusher,
-.st-content {
+.site{
+	width: 100%;
 	height: 100%;
 }
 
-.st-container {
-	position: relative;
-	overflow: hidden;
-}
+/* Unexpanded */
 
-.st-menu {
-	overflow: auto;
-	-webkit-overflow-scrolling: touch;
+nav.site-nav{
 	position: absolute;
 	top: 0;
 	left: 0;
-	width: 300px;
-	height: 100%;
-	background: white;
-	-webkit-transition: all 0.5s;
-	transition: all 0.5s;
+	bottom: 0;
+	outline: 0;
+	z-index: -1;
 }
 
-.st-pusher {
-	position: relative;
-	left: 0;
-	z-index: 99;
+nav.site-nav .site-nav-scrollable-container{
+	overflow: auto;
 	height: 100%;
-	-webkit-transition: -webkit-transform 0.5s;
-	transition: transform 0.5s;
-	-moz-box-shadow: 0 0 20px #888;
-	-webkit-box-shadow: 0 0 20px #888;
-  	box-shadow: 0 0 20px #888;
+	overflow-x: auto;
+	overflow-y: auto;
+	-webkit-overflow-scrolling: touch;
 }
 
-.st-pusher::after {
+.site-nav-overlay{
+	display: none;
 	position: absolute;
+	left: 0;
 	top: 0;
 	right: 0;
-	width: 0;
-	height: 0;
-	background: rgba(0,0,0,0.2);
-	content: '';
-	opacity: 0;
-	-webkit-transition: opacity 0.5s, width 0.1s 0.5s, height 0.1s 0.5s;
-	transition: opacity 0.5s, width 0.1s 0.5s, height 0.1s 0.5s;
+	bottom: 0;
+	z-index: 600;
 }
 
-.st-menu-open .st-pusher::after {
+.container{
+	height: 100%;
+	overflow: hidden;
+	-webkit-transition: -webkit-transform .2s cubic-bezier(0.2,0.3,0.25,0.9);
+	-moz-transition: -moz-transform .2s cubic-bezier(0.2,0.3,0.25,0.9);
+	-o-transition: -o-transform .2s cubic-bezier(0.2,0.3,0.25,0.9);
+	transition: transform .2s cubic-bezier(0.2,0.3,0.25,0.9);
+}
+
+/* Expanded */
+
+.site-nav-drawer-open nav.site-nav .site-nav-scrollable-container{
+	display: block;
+	width: 280px;
+}
+
+
+.site-nav-drawer-open .site-nav-overlay{
+	left: 280px;
+	z-index: 900;
+	display: block;
+}
+
+.site-nav-drawer-open .container{
+	-webkit-transform: translate3d(280px,0,0);
+	-moz-transform: translate3d(280px,0,0);
+	-o-transform: translate3d(280px,0,0);
+	transform: translate3d(280px,0,0);
+	left: 0;
+	position: fixed;
+	overflow: hidden;
 	width: 100%;
 	height: 100%;
-	opacity: 1;
-	-webkit-transition: opacity 0.5s;
-	transition: opacity 0.5s;
-}
-
-.st-content {
-	position: relative;
-	overflow-y: scroll;
-	-webkit-overflow-scrolling: touch;
-}
-
-/* This grays out the main content area */
-.st-menu-open .st-content::after {
-	width: 100%;
-	height: 100%;
-	opacity: 1;
-	-webkit-transition: opacity 0.5s;
-	transition: opacity 0.5s;
-}
-
-/* Effect */
-
-/* Effect 2: Reveal */
-.st-effect.st-menu-open .st-pusher {
-	-webkit-transform: translate3d(300px, 0, 0);
-	transform: translate3d(300px, 0, 0);
-}
-
-.st-effect.st-menu {
-	z-index: 1;
-}
-
-.st-effect.st-menu-open .st-effect.st-menu {
-	visibility: visible;
-	-webkit-transition: -webkit-transform 0.5s;
-	transition: transform 0.5s;
-}
-
-.st-effect.st-menu::after {
-	display: none;
+	z-index: 800;
 }

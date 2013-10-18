@@ -1,11 +1,11 @@
 angular.module("slidenav",[])
 	.constant('CSS_CLASSES',{
-		container: 'st-container',
-		effect: 'st-effect',
-		pusher: 'st-pusher',
-		content: 'st-content',
-		menu: 'st-menu',
-		menuOpen: 'st-menu-open'
+		site: 'site',
+		content: 'container',
+		contentOverlay: 'site-nav-overlay',
+		navContainer: 'site-nav-scrollable-container',
+		nav: 'site-nav',
+		menuOpen: 'site-nav-drawer-open'
 	})
 	.factory('slidenav', ['$rootScope', '$timeout', function($rootScope, $timeout){
 
@@ -15,16 +15,12 @@ angular.module("slidenav",[])
 
 		return {
 			open: function(){
-				$rootScope.$emit("slidenav:open", "test");
-				$timeout(function(){
-					state.isOpen = true;
-				}, 500);	// Timeout is set to be the CSS transition time
+				$rootScope.$emit("slidenav:open", "");
+				state.isOpen = true;
 			},
 			close: function(){
-				$rootScope.$emit("slidenav:close", "test");
-				$timeout(function(){
-					state.isOpen = false;
-				}, 500);	// Timeout is set to be the CSS transition time
+				$rootScope.$emit("slidenav:close", "");
+				state.isOpen = false;
 			},
 			isOpen: function(){
 				return state.isOpen;
@@ -36,7 +32,7 @@ angular.module("slidenav",[])
 	        restrict: "E",
 	        scope: {},
 	        transclude: true,
-	        template: '<div class="'+ CSS_CLASSES.container + ' ' + CSS_CLASSES.effect + '" ng-transclude></div>',
+	        template: '<div class="'+ CSS_CLASSES.site + '" ng-transclude></div>',
 	        replace: true,
 	        controller: ['$rootScope', '$scope', '$timeout', 'slidenav', '$element',function($rootScope, $scope, $timeout, slidenav, $element){
 
@@ -47,11 +43,7 @@ angular.module("slidenav",[])
 	            $rootScope.$on("slidenav:close", function(_, msg){
 	                $element.removeClass(CSS_CLASSES.menuOpen);
 	            });
-	            
 
-	            $scope.init = function(containerElement){
-	            	$scope.model.containerElement = containerElement;
-	            }
 	        }],
 	        link: function(scope, element, attrs){
 	        }
@@ -62,9 +54,10 @@ angular.module("slidenav",[])
 	        restrict: "E",
 	        transclude: true,
 	        scope: {},	
-	        template: '<div class="' + CSS_CLASSES.menu + ' ' + CSS_CLASSES.effect + '" ng-transclude></div>',
+	        template: '<nav class="' + CSS_CLASSES.nav + '"><div class="' + CSS_CLASSES.navContainer + '" ng-transclude></div></nav>',
 	        replace: true,
-	        controller: ['$scope',function($scope){
+	        controller: ['$scope','slidenav',function($scope,slidenav){
+	        	$scope.slidenav = slidenav;
 	        }],
 	        link: function(scope, element, attrs){
 	        }
@@ -75,7 +68,7 @@ angular.module("slidenav",[])
 	        restrict: "E",
 	        transclude: true,
 	        scope: {},
-	        template: '<div class="' + CSS_CLASSES.pusher + '" ng-click="pusherClick($event)"><div class="' + CSS_CLASSES.content + '" ng-transclude></div></div>',
+	        template: '<div><div class="' + CSS_CLASSES.contentOverlay + '" ng-click="pusherClick($event)"></div><div class="' + CSS_CLASSES.content + '" ng-transclude></div></div>',
 	        replace: true,
 	        controller: ['$rootScope', '$scope', '$timeout',function($rootScope, $scope, $timeout){
 
