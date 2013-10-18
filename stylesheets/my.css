@@ -1,7 +1,8 @@
-.st-content{
-	background-color:beige;
+nav.site-nav{
+	background-color: #232322;
+	color: white;
 }
 
-.main-body{
-	padding: 0 50px;
+.container{
+	background-color: #fff;
 }
