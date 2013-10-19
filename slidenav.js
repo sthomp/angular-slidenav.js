@@ -1,26 +1,29 @@
 angular.module("slidenav",[])
 	.constant('CSS_CLASSES',{
 		site: 'site',
-		content: 'container',
-		contentOverlay: 'site-nav-overlay',
-		navContainer: 'site-nav-scrollable-container',
-		nav: 'site-nav',
-		menuOpen: 'site-nav-drawer-open'
+		content: 'content',
+		nav: 'nav',
+		menuOpen: 'drawer-open'
 	})
-	.factory('slidenav', ['$rootScope', '$timeout', function($rootScope, $timeout){
+	.factory('slidenav', ['$timeout', function($timeout){
 
 	    var state = {
 	    	isOpen: false
 	    }
 
 		return {
+			state: state,
 			open: function(){
-				$rootScope.$emit("slidenav:open", "");
-				state.isOpen = true;
+				$timeout(function(){
+					state.isOpen = true;	
+				});
+				
 			},
 			close: function(){
-				$rootScope.$emit("slidenav:close", "");
-				state.isOpen = false;
+				$timeout(function(){
+					state.isOpen = false;	
+				});
+				
 			},
 			isOpen: function(){
 				return state.isOpen;
@@ -32,17 +35,11 @@ angular.module("slidenav",[])
 	        restrict: "E",
 	        scope: {},
 	        transclude: true,
-	        template: '<div class="'+ CSS_CLASSES.site + '" ng-transclude></div>',
+	        template: '<div class="'+ CSS_CLASSES.site + '" ng-class="{\'' + CSS_CLASSES.menuOpen + '\': slidenav.isOpen()}" ng-transclude></div>',
 	        replace: true,
-	        controller: ['$rootScope', '$scope', '$timeout', 'slidenav', '$element',function($rootScope, $scope, $timeout, slidenav, $element){
+	        controller: ['$scope', '$timeout', 'slidenav', '$element',function($scope, $timeout, slidenav, $element){
 
-	        	$rootScope.$on("slidenav:open", function(_, msg){
-	                $element.addClass(CSS_CLASSES.menuOpen);
-	            });
-
-	            $rootScope.$on("slidenav:close", function(_, msg){
-	                $element.removeClass(CSS_CLASSES.menuOpen);
-	            });
+	        	$scope.slidenav = slidenav;
 
 	        }],
 	        link: function(scope, element, attrs){
@@ -54,10 +51,10 @@ angular.module("slidenav",[])
 	        restrict: "E",
 	        transclude: true,
 	        scope: {},	
-	        template: '<nav class="' + CSS_CLASSES.nav + '"><div class="' + CSS_CLASSES.navContainer + '" ng-transclude></div></nav>',
+	        template: '<nav class="' + CSS_CLASSES.nav + '" ng-transclude></nav>',
 	        replace: true,
-	        controller: ['$scope','slidenav',function($scope,slidenav){
-	        	$scope.slidenav = slidenav;
+	        controller: ['$scope',function($scope){
+	        	
 	        }],
 	        link: function(scope, element, attrs){
 	        }
@@ -68,11 +65,11 @@ angular.module("slidenav",[])
 	        restrict: "E",
 	        transclude: true,
 	        scope: {},
-	        template: '<div><div class="' + CSS_CLASSES.contentOverlay + '" ng-click="pusherClick($event)"></div><div class="' + CSS_CLASSES.content + '" ng-transclude></div></div>',
+	        template: '<div class="' + CSS_CLASSES.content + '" ng-click="closeNav()" ng-transclude></div>',
 	        replace: true,
-	        controller: ['$rootScope', '$scope', '$timeout',function($rootScope, $scope, $timeout){
+	        controller: ['$scope', '$element', 'slidenav', function($scope, $element, slidenav){
 
-	        	$scope.pusherClick = function(event){
+	        	$scope.closeNav = function(){
 	            	if(slidenav.isOpen()){
 	            		slidenav.close();
 	            	}
