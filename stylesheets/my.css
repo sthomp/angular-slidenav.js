@@ -1,4 +1,4 @@
-nav.nav{
+nav.st-nav{
 	-moz-box-shadow: inset 0 0 20px #888;
 	-webkit-box-shadow: inset 0 0 20px #888;
 	box-shadow: inset 0 0 20px #888;
@@ -6,7 +6,7 @@ nav.nav{
 	color: white;
 }
 
-.content{
+.st-content{
 	background-color: #fff;
 	background: white;
 }
