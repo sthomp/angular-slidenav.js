@@ -1,9 +1,9 @@
 angular.module("slidenav",[])
 	.constant('CSS_CLASSES',{
-		site: 'site',
-		content: 'content',
-		nav: 'nav',
-		menuOpen: 'drawer-open'
+		site: 'st-site',
+		content: 'st-content',
+		nav: 'st-nav',
+		menuOpen: 'st-drawer-open'
 	})
 	.factory('slidenav', ['$timeout', function($timeout){
 
