@@ -1,7 +1,7 @@
 angular-slidenav.js
 ===================
 
-A simple slideout nav that is an angularized version of the one found here: http://tympanus.net/Development/SidebarTransitions
+A simple slideout nav built for angularjs
 
 Demo
 ====
@@ -45,7 +45,3 @@ slidenav.close();
 slidenav.isOpen();
 ```
 
-Animation Effects
-=================
-
-This wrapper will only work with effects that allow the menu to be outside the 'pusher'. This includes effects 1,2,4,5,9,10,11,12,13.
