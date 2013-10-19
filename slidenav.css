@@ -1,9 +1,8 @@
-
-.site{
+.st-site{
 	height: 100%;
 }
 
-.nav{
+.st-nav{
 	-webkit-transition: left 0.2s cubic-bezier(0.2,0.3,0.25,0.9);
     -moz-transition: left 0.2s cubic-bezier(0.2,0.3,0.25,0.9);
     -o-transition: left 0.2s cubic-bezier(0.2,0.3,0.25,0.9);
@@ -19,7 +18,7 @@
     width: 250px;
 }
 
-.content{
+.st-content{
 	-webkit-transition: -webkit-transform 0.2s cubic-bezier(0.2,0.3,0.25,0.9);
     -moz-transition: -moz-transform 0.2s cubic-bezier(0.2,0.3,0.25,0.9);
     -o-transition: -o-transform 0.2s cubic-bezier(0.2,0.3,0.25,0.9);
@@ -29,11 +28,11 @@
 
 /* Open */
 
-.drawer-open .nav{
+.st-drawer-open .nav{
 	left: 0px;
 }
 
-.drawer-open .content{
+.st-drawer-open .st-content{
 	-webkit-transform: translate3d(250px,0,0);
     -moz-transform: translate3d(250px,0,0);
     -o-transform: translate3d(250px,0,0);
