@@ -27,6 +27,9 @@ angular.module("slidenav",[])
 			},
 			isOpen: function(){
 				return state.isOpen;
+			},
+			toggle: function() {
+				state.isOpen = !state.isOpen;
 			}
 		}
 	}])
