@@ -15,7 +15,8 @@
   overflow-x: hidden;
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
-    width: 250px;
+  width: 250px;
+  z-index: 11;
 }
 
 .st-content{
