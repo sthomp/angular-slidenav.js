@@ -28,6 +28,11 @@ angular.module("slidenav",[])
       },
       isOpen: function(){
         return state.isOpen;
+      },
+      toggle: function() {
+        $timeout(function(){
+          state.isOpen = !state.isOpen;
+        });
       }
     }
   }])
