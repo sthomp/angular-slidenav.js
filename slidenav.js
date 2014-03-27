@@ -30,7 +30,9 @@ angular.module("slidenav",[])
         return state.isOpen;
       },
       toggle: function() {
-        state.isOpen = !state.isOpen;
+        $timeout(function(){
+          state.isOpen = !state.isOpen;
+        });
       }
     }
   }])
